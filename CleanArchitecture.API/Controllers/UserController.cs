@@ -16,6 +16,9 @@ namespace CleanArchitecture.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get(int id) => Ok(mediator.Send(new GetUserRequest { Id = id }));
+        public IActionResult GetUsers() => Ok(mediator.Send(new GetUsersRequest()));
+
+        [HttpPost]
+        public IActionResult AddUser(string name) => Ok(mediator.Send(new CreateUserRequest { Name = name }));
     }
 }
